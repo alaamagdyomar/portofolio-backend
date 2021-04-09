@@ -7,6 +7,7 @@ const sendGrid = require('@sendGrid/mail');
 
 const app = express();
 
+require("dotenv").config();
 
 app.use(bodyParser.json());
 
@@ -56,5 +57,6 @@ app.post('/api/email', (req, res, next) => {
 });
 
 
-app.listen(3030, '0.0.0.0');
-console.log('server is running');
+app.listen(process.env.PORT || 3030 ,()=>{
+    console.log('server is running'); 
+});
